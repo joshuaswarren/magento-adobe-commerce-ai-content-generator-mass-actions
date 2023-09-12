@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Creatuity\AIContentMassAction\Api\Data\AiContentQueueEntryInterface" type="Creatuity\AIContentMassAction\Model\AiContentQueueEntry"/>
+    <preference for="Creatuity\AIContentMassAction\Api\AiContentQueueEntryRepositoryInterface" type="Creatuity\AIContentMassAction\Model\AiContentQueueEntryRepository"/>
+    <preference for="Creatuity\AIContentMassAction\Api\Data\AiContentQueueEntrySearchResultInterface" type="Creatuity\AIContentMassAction\Model\AiContentQueueEntrySearchResult"/>
+    <preference for="Creatuity\AIContentMassAction\Model\Validator\AiContentQueueEntryValidatorInterface" type="Creatuity\AIContentMassAction\Model\Validator\AiContentQueueEntryCompositeEntryValidator"/>
+
+    <type name="Creatuity\AIContentMassAction\Model\UpdateProductAttribute">
+        <arguments>
+            <argument name="supportedAttributes" xsi:type="array">
+                <item name="description" xsi:type="boolean">true</item>
+                <item name="short_description" xsi:type="boolean">true</item>
+                <item name="meta_title" xsi:type="boolean">true</item>
+                <item name="meta_keyword" xsi:type="boolean">true</item>
+                <item name="meta_description" xsi:type="boolean">true</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Creatuity\AIContentMassAction\Model\Validator\AiContentQueueEntryCompositeEntryValidator">
+        <arguments>
+            <argument name="validators" xsi:type="array">
+                <item name="product_id_validator" xsi:type="object">Creatuity\AIContentMassAction\Model\Validator\AiContentQueueEntryProductIdValidator</item>
+                <item name="content_type_validator" xsi:type="object">Creatuity\AIContentMassAction\Model\Validator\AiContentQueueEntryContentTypeValidator</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="creatuity:products:ai-content-generate" xsi:type="object">Creatuity\AIContentMassAction\Command\Console\AddProductsToAiContentGenerationQueueCommand</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <virtualType name="Creatuity\AIContentMassAction\Model\ResourceModel\AiContentQueueEntry\Grid\Collection"
+                 type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="const">Creatuity\AIContentMassAction\Model\ResourceModel\AiContentQueueEntry::TABLE_NAME</argument>
+            <argument name="resourceModel" xsi:type="string">Creatuity\AIContentMassAction\Model\ResourceModel\AiContentQueueEntry</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="creatuityaicontent_aicontententry_queue_listing_data_source" xsi:type="string">Creatuity\AIContentMassAction\Model\ResourceModel\AiContentQueueEntry\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Creatuity\AIContent\Model\DataProvider\ProductId\AIFormProductIdProvider">
+        <arguments>
+            <argument name="providers" xsi:type="array">
+                <item name="from_queue_provider" sortOrder="20" xsi:type="object">Creatuity\AIContentMassAction\Model\DataProvider\ProductId\AIFormProductIdFromQueue</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Creatuity\AIContent\Model\DataProvider\ContentType\AIFormContentTypeProvider">
+        <arguments>
+            <argument name="providers" xsi:type="array">
+                <item name="from_queue_provider" sortOrder="20" xsi:type="object">Creatuity\AIContentMassAction\Model\DataProvider\ContentType\AIFormContentTypeFromQueue</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

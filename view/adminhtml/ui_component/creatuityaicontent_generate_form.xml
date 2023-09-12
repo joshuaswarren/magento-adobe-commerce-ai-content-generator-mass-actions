@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <container name="product_name" sortOrder="1">
+        <htmlContent name="product_name_html">
+            <block name="product_name_html_block" template="Creatuity_AIContentMassAction::product-data.phtml">
+                <arguments>
+                    <argument name="view_model" xsi:type="object">Creatuity\AIContentMassAction\ViewModel\AiContentEntryViewModel</argument>
+                </arguments>
+            </block>
+        </htmlContent>
+    </container>
+    <container name="empty_queue_msg" sortOrder="2">
+        <htmlContent name="empty_queue_msg_html">
+            <block name="empty_queue_msg_block" template="Creatuity_AIContentMassAction::empty-queue.phtml">
+                <arguments>
+                    <argument name="view_model" xsi:type="object">Creatuity\AIContentMassAction\ViewModel\AiContentEntryViewModel</argument>
+                </arguments>
+            </block>
+        </htmlContent>
+    </container>
+    <fieldset name="fields">
+        <fieldset name="descriptions">
+            <container name="short_description_container">
+                <button name="apply_short_description_btn">
+                    <settings>
+                        <imports>
+                            <link name="visible">!${ $.provider }:data.mass_action</link>
+                            <link name="delete">${ $.provider }:data.mass_action</link>
+                        </imports>
+                    </settings>
+                </button>
+                <button name="save_short_description_btn"
+                        template="ui/form/components/button/container"
+                        component="Creatuity_AIContentMassAction/js/product/form/component/save-ai-content-button"
+                        sortOrder="100">
+                    <settings>
+                        <title translate="true">Save</title>
+                        <imports>
+                            <link name="visible">${ $.provider }:data.mass_action</link>
+                            <link name="productId">${ $.provider }:data.product_id</link>
+                        </imports>
+                    </settings>
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="additionalForGroup" xsi:type="boolean">true</item>
+                            <item name="additionalClasses" xsi:type="string">admin__field-small admin__button-aicontent-form margin-left-10</item>
+                            <item name="attribute" xsi:type="string">short_description</item>
+                            <item name="buttonClasses" xsi:type="string">action-primary</item>
+                            <item name="actionUrl" xsi:type="url" path="creatuityAiContent/product/saveProductContent"/>
+                            <item name="sourceField" xsi:type="string">ns = ${ $.ns }, index=short_description</item>
+                        </item>
+                    </argument>
+                </button>
+            </container>
+            <container name="description_container">
+                <button name="apply_description_btn">
+                    <settings>
+                        <imports>
+                            <link name="visible">!${ $.provider }:data.mass_action</link>
+                            <link name="delete">${ $.provider }:data.mass_action</link>
+                        </imports>
+                    </settings>
+                </button>
+                <button name="save_description_btn"
+                        component="Creatuity_AIContentMassAction/js/product/form/component/save-ai-content-button"
+                        template="ui/form/components/button/container"
+                        sortOrder="100">
+                    <settings>
+                        <title translate="true">Save</title>
+                        <imports>
+                            <link name="visible">${ $.provider }:data.mass_action</link>
+                            <link name="productId">${ $.provider }:data.product_id</link>
+                        </imports>
+                    </settings>
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="additionalForGroup" xsi:type="boolean">true</item>
+                            <item name="additionalClasses" xsi:type="string">admin__field-small admin__button-aicontent-form margin-left-10</item>
+                            <item name="attribute" xsi:type="string">description</item>
+                            <item name="buttonClasses" xsi:type="string">action-primary</item>
+                            <item name="actionUrl" xsi:type="url" path="creatuityAiContent/product/saveProductContent"/>
+                            <item name="sourceField" xsi:type="string">ns = ${ $.ns }, index=description</item>
+                        </item>
+                    </argument>
+                </button>
+            </container>
+        </fieldset>
+        <fieldset name="meta_tags">
+            <container name="meta_title_1_container">
+                <button name="meta_title_1_apply_btn">
+                    <settings>
+                        <imports>
+                            <link name="visible">!${ $.provider }:data.mass_action</link>
+                            <link name="delete">${ $.provider }:data.mass_action</link>
+                        </imports>
+                    </settings>
+                </button>
+                <button name="meta_title_1_save_btn"
+                        component="Creatuity_AIContentMassAction/js/product/form/component/save-ai-content-button"
+                        template="ui/form/components/button/container"
+                        sortOrder="100">
+                    <settings>
+                        <title translate="true">Save</title>
+                        <visible>false</visible>
+                        <imports>
+                            <link name="productId">${ $.provider }:data.product_id</link>
+                        </imports>
+                    </settings>
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="additionalForGroup" xsi:type="boolean">true</item>
+                            <item name="additionalClasses" xsi:type="string">admin__field-small</item>
+                            <item name="attribute" xsi:type="string">meta_title</item>
+                            <item name="buttonClasses" xsi:type="string">action-primary</item>
+                            <item name="actionUrl" xsi:type="url" path="creatuityAiContent/product/saveProductContent"/>
+                            <item name="sourceField" xsi:type="string">ns = ${ $.ns }, index=meta_title_1</item>
+                        </item>
+                    </argument>
+                </button>
+            </container>
+            <container name="meta_title_2_container">
+                <button name="meta_title_2_apply_btn">
+                    <settings>
+                        <imports>
+                            <link name="visible">!${ $.provider }:data.mass_action</link>
+                            <link name="delete">${ $.provider }:data.mass_action</link>
+                        </imports>
+                    </settings>
+                </button>
+                   <button name="meta_title_2_save_btn"
+                        component="Creatuity_AIContentMassAction/js/product/form/component/save-ai-content-button"
+                        template="ui/form/components/button/container"
+                        sortOrder="100">
+                    <settings>
+                        <title translate="true">Save</title>
+                        <visible>false</visible>
+                        <imports>
+                            <link name="productId">${ $.provider }:data.product_id</link>
+                        </imports>
+                    </settings>
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="additionalForGroup" xsi:type="boolean">true</item>
+                            <item name="additionalClasses" xsi:type="string">admin__field-small</item>
+                            <item name="attribute" xsi:type="string">meta_title</item>
+                            <item name="buttonClasses" xsi:type="string">action-primary</item>
+                            <item name="actionUrl" xsi:type="url" path="creatuityAiContent/product/saveProductContent"/>
+                            <item name="sourceField" xsi:type="string">ns = ${ $.ns }, index=meta_title_2</item>
+                        </item>
+                    </argument>
+                </button>
+            </container>
+            <container name="meta_title_3_container">
+                <button name="meta_title_3_apply_btn">
+                    <settings>
+                        <imports>
+                            <link name="visible">!${ $.provider }:data.mass_action</link>
+                            <link name="delete">${ $.provider }:data.mass_action</link>
+                        </imports>
+                    </settings>
+                </button>
+                   <button name="meta_title_3_save_btn"
+                        component="Creatuity_AIContentMassAction/js/product/form/component/save-ai-content-button"
+                        template="ui/form/components/button/container"
+                        sortOrder="100">
+                    <settings>
+                        <title translate="true">Save</title>
+                        <visible>false</visible>
+                        <imports>
+                            <link name="productId">${ $.provider }:data.product_id</link>
+                        </imports>
+                    </settings>
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="additionalForGroup" xsi:type="boolean">true</item>
+                            <item name="additionalClasses" xsi:type="string">admin__field-small</item>
+                            <item name="attribute" xsi:type="string">meta_title</item>
+                            <item name="buttonClasses" xsi:type="string">action-primary</item>
+                            <item name="actionUrl" xsi:type="url" path="creatuityAiContent/product/saveProductContent"/>
+                            <item name="sourceField" xsi:type="string">ns = ${ $.ns }, index=meta_title_3</item>
+                        </item>
+                    </argument>
+                </button>
+            </container>
+            <container name="meta_keywords_1_container">
+                <button name="meta_keywords_1_apply_btn">
+                    <settings>
+                        <imports>
+                            <link name="visible">!${ $.provider }:data.mass_action</link>
+                            <link name="delete">${ $.provider }:data.mass_action</link>
+                        </imports>
+                    </settings>
+                </button>
+                <button name="meta_keywords_1_save_btn"
+                        component="Creatuity_AIContentMassAction/js/product/form/component/save-ai-content-button"
+                        template="ui/form/components/button/container"
+                        sortOrder="100">
+                    <settings>
+                        <title translate="true">Save</title>
+                        <visible>false</visible>
+                        <imports>
+                            <link name="productId">${ $.provider }:data.product_id</link>
+                        </imports>
+                    </settings>
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="additionalForGroup" xsi:type="boolean">true</item>
+                            <item name="additionalClasses" xsi:type="string">admin__field-small</item>
+                            <item name="attribute" xsi:type="string">meta_keyword</item>
+                            <item name="buttonClasses" xsi:type="string">action-primary</item>
+                            <item name="actionUrl" xsi:type="url" path="creatuityAiContent/product/saveProductContent"/>
+                            <item name="sourceField" xsi:type="string">ns = ${ $.ns }, index=meta_keywords_1</item>
+                        </item>
+                    </argument>
+                </button>
+            </container>
+            <container name="meta_keywords_2_container">
+                <button name="meta_keywords_2_apply_btn">
+                    <settings>
+                        <imports>
+                            <link name="visible">!${ $.provider }:data.mass_action</link>
+                            <link name="delete">${ $.provider }:data.mass_action</link>
+                        </imports>
+                    </settings>
+                </button>
+                <button name="meta_keywords_2_save_btn"
+                        component="Creatuity_AIContentMassAction/js/product/form/component/save-ai-content-button"
+                        template="ui/form/components/button/container"
+                        sortOrder="100">
+                    <settings>
+                        <title translate="true">Save</title>
+                        <visible>false</visible>
+                        <imports>
+                            <link name="productId">${ $.provider }:data.product_id</link>
+                        </imports>
+                    </settings>
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="additionalForGroup" xsi:type="boolean">true</item>
+                            <item name="additionalClasses" xsi:type="string">admin__field-small</item>
+                            <item name="attribute" xsi:type="string">meta_keyword</item>
+                            <item name="buttonClasses" xsi:type="string">action-primary</item>
+                            <item name="actionUrl" xsi:type="url" path="creatuityAiContent/product/saveProductContent"/>
+                            <item name="sourceField" xsi:type="string">ns = ${ $.ns }, index=meta_keywords_2</item>
+                        </item>
+                    </argument>
+                </button>
+            </container>
+
+            <container name="meta_keywords_3_container">
+                <button name="meta_keywords_3_apply_btn">
+                    <settings>
+                        <imports>
+                            <link name="visible">!${ $.provider }:data.mass_action</link>
+                            <link name="delete">${ $.provider }:data.mass_action</link>
+                        </imports>
+                    </settings>
+                </button>
+                <button name="meta_keywords_3_save_btn"
+                        component="Creatuity_AIContentMassAction/js/product/form/component/save-ai-content-button"
+                        template="ui/form/components/button/container"
+                        sortOrder="100">
+                    <settings>
+                        <title translate="true">Save</title>
+                        <visible>false</visible>
+                        <imports>
+                            <link name="productId">${ $.provider }:data.product_id</link>
+                        </imports>
+                    </settings>
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="additionalForGroup" xsi:type="boolean">true</item>
+                            <item name="additionalClasses" xsi:type="string">admin__field-small</item>
+                            <item name="attribute" xsi:type="string">meta_keyword</item>
+                            <item name="buttonClasses" xsi:type="string">action-primary</item>
+                            <item name="actionUrl" xsi:type="url" path="creatuityAiContent/product/saveProductContent"/>
+                            <item name="sourceField" xsi:type="string">ns = ${ $.ns }, index=meta_keywords_3</item>
+                        </item>
+                    </argument>
+                </button>
+            </container>
+
+            <container name="meta_description_1_container">
+                <button name="meta_description_1_apply_btn">
+                    <settings>
+                        <imports>
+                            <link name="visible">!${ $.provider }:data.mass_action</link>
+                            <link name="delete">${ $.provider }:data.mass_action</link>
+                        </imports>
+                    </settings>
+                </button>
+                <button name="meta_description_1_save_btn"
+                        component="Creatuity_AIContentMassAction/js/product/form/component/save-ai-content-button"
+                        template="ui/form/components/button/container"
+                        sortOrder="100">
+                    <settings>
+                        <title translate="true">Save</title>
+                        <visible>false</visible>
+                        <imports>
+                            <link name="productId">${ $.provider }:data.product_id</link>
+                        </imports>
+                    </settings>
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="additionalForGroup" xsi:type="boolean">true</item>
+                            <item name="additionalClasses" xsi:type="string">admin__field-small</item>
+                            <item name="attribute" xsi:type="string">meta_description</item>
+                            <item name="buttonClasses" xsi:type="string">action-primary</item>
+                            <item name="actionUrl" xsi:type="url" path="creatuityAiContent/product/saveProductContent"/>
+                            <item name="sourceField" xsi:type="string">ns = ${ $.ns }, index=meta_description_1</item>
+                        </item>
+                    </argument>
+                </button>
+            </container>
+
+            <container name="meta_description_2_container">
+                <button name="meta_description_2_apply_btn">
+                    <settings>
+                        <imports>
+                            <link name="visible">!${ $.provider }:data.mass_action</link>
+                            <link name="delete">${ $.provider }:data.mass_action</link>
+                        </imports>
+                    </settings>
+                </button>
+                <button name="meta_description_2_save_btn"
+                        component="Creatuity_AIContentMassAction/js/product/form/component/save-ai-content-button"
+                        template="ui/form/components/button/container"
+                        sortOrder="100">
+                    <settings>
+                        <title translate="true">Save</title>
+                        <visible>false</visible>
+                        <imports>
+                            <link name="productId">${ $.provider }:data.product_id</link>
+                        </imports>
+                    </settings>
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="additionalForGroup" xsi:type="boolean">true</item>
+                            <item name="additionalClasses" xsi:type="string">admin__field-small</item>
+                            <item name="attribute" xsi:type="string">meta_description</item>
+                            <item name="buttonClasses" xsi:type="string">action-primary</item>
+                            <item name="actionUrl" xsi:type="url" path="creatuityAiContent/product/saveProductContent"/>
+                            <item name="sourceField" xsi:type="string">ns = ${ $.ns }, index=meta_description_2</item>
+                        </item>
+                    </argument>
+                </button>
+            </container>
+
+            <container name="meta_description_3_container">
+                <button name="meta_description_3_apply_btn">
+                    <settings>
+                        <imports>
+                            <link name="visible">!${ $.provider }:data.mass_action</link>
+                            <link name="delete">${ $.provider }:data.mass_action</link>
+                        </imports>
+                    </settings>
+                </button>
+                <button name="meta_description_3_save_btn"
+                        component="Creatuity_AIContentMassAction/js/product/form/component/save-ai-content-button"
+                        template="ui/form/components/button/container"
+                        sortOrder="100">
+                    <settings>
+                        <title translate="true">Save</title>
+                        <visible>false</visible>
+                        <imports>
+                            <link name="productId">${ $.provider }:data.product_id</link>
+                        </imports>
+                    </settings>
+                    <argument name="data" xsi:type="array">
+                        <item name="config" xsi:type="array">
+                            <item name="additionalForGroup" xsi:type="boolean">true</item>
+                            <item name="additionalClasses" xsi:type="string">admin__field-small</item>
+                            <item name="attribute" xsi:type="string">meta_description</item>
+                            <item name="buttonClasses" xsi:type="string">action-primary</item>
+                            <item name="actionUrl" xsi:type="url" path="creatuityAiContent/product/saveProductContent"/>
+                            <item name="sourceField" xsi:type="string">ns = ${ $.ns }, index=meta_description_3</item>
+                        </item>
+                    </argument>
+                </button>
+            </container>
+        </fieldset>
+    </fieldset>
+</form>

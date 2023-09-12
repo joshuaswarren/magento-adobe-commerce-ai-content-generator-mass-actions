@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">creatuityaicontent_aicontententry_queue.creatuityaicontent_aicontententry_queue_data_source</item>
+            <item name="namespace" xsi:type="string">creatuityaicontent_aicontententry_queue</item>
+        </item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+    <settings>
+        <deps>
+            <dep>creatuityaicontent_aicontententry_queue.creatuityaicontent_aicontententry_queue_data_source</dep>
+        </deps>
+        <dataScope>data</dataScope>
+        <namespace>creatuityaicontent_aicontententry_queue</namespace>
+        <buttons>
+            <button name="back">
+                <url path="catalog/product/index/"/>
+                <class>back</class>
+                <label translate="true">Back</label>
+            </button>
+        </buttons>
+    </settings>
+    <dataSource name="creatuityaicontent_aicontententry_queue_data_source">
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+        <settings>
+            <validateUrl path="*/*/validate"/>
+            <submitUrl path="*/*/save"/>
+        </settings>
+        <dataProvider class="Creatuity\AIContentMassAction\Ui\Form\AiContentEntryQueueDataProvider" name="creatuityaicontent_aicontententry_queue_data_source">
+            <settings>
+                <requestFieldName>id</requestFieldName>
+                <primaryFieldName>entry_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+
+    <fieldset name="general" sortOrder="1">
+        <settings>
+            <label />
+        </settings>
+        <container name="modal_container">
+            <modal name="generate_modal" component="Creatuity_AIContentMassAction/js/modal/components/confirm-continue-modal">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="onCancel" xsi:type="string">actionCancel</item>
+                        <item name="options" xsi:type="array">
+                            <item name="buttons" xsi:type="array">
+                                <item name="0" xsi:type="array">
+                                    <item name="text" xsi:type="string">Close</item>
+                                    <item name="class" xsi:type="string">action-secondary</item>
+                                    <item name="actions" xsi:type="array">
+                                        <item name="0" xsi:type="string">actionCancel</item>
+                                    </item>
+                                </item>
+                                <item name="1" xsi:type="array">
+                                    <item name="text" xsi:type="string">Skip</item>
+                                    <item name="class" xsi:type="string">action-secondary</item>
+                                    <item name="actions" xsi:type="array">
+                                        <item name="0" xsi:type="array">
+                                            <item name="targetName" xsi:type="string">${ $.name }.general.creatuityaicontent_generate_form</item>
+                                            <item name="actionName" xsi:type="string">destroyInserted</item>
+                                        </item>
+                                        <item name="1" xsi:type="array">
+                                            <item name="targetName" xsi:type="string">${ $.name }</item>
+                                            <item name="actionName" xsi:type="string">openModal</item>
+                                        </item>
+                                        <item name="2" xsi:type="array">
+                                            <item name="targetName" xsi:type="string">${ $.name }.general.creatuityaicontent_generate_form</item>
+                                            <item name="actionName" xsi:type="string">render</item>
+                                        </item>
+                                        <item name="3" xsi:type="array">
+                                            <item name="targetName" xsi:type="string">${ $.name }.general.creatuityaicontent_generate_form</item>
+                                            <item name="actionName" xsi:type="string">resetForm</item>
+                                        </item>
+                                    </item>
+                                </item>
+                                <item name="2" xsi:type="array">
+                                    <item name="text" xsi:type="string">Confirm and Continue</item>
+                                    <item name="class" xsi:type="string">action-primary</item>
+                                    <item name="actions" xsi:type="array">
+                                        <item name="0" xsi:type="array">
+                                            <item name="targetName" xsi:type="string">${ $.name }.general.creatuityaicontent_generate_form</item>
+                                            <item name="actionName" xsi:type="string">confirm</item>
+                                        </item>
+                                        <item name="1" xsi:type="array">
+                                            <item name="targetName" xsi:type="string">${ $.name }.general.creatuityaicontent_generate_form</item>
+                                            <item name="actionName" xsi:type="string">destroyInserted</item>
+                                        </item>
+                                        <item name="2" xsi:type="array">
+                                            <item name="targetName" xsi:type="string">${ $.name }.general.creatuityaicontent_generate_form</item>
+                                            <item name="actionName" xsi:type="string">render</item>
+                                        </item>
+                                        <item name="3" xsi:type="array">
+                                            <item name="targetName" xsi:type="string">${ $.name }.general.creatuityaicontent_generate_form</item>
+                                            <item name="actionName" xsi:type="string">resetForm</item>
+                                        </item>
+                                    </item>
+                                </item>
+                            </item>
+                        </item>
+                    </item>
+                </argument>
+                <fieldset name="general">
+                    <settings>
+                        <label/>
+                    </settings>
+                    <insertForm name="creatuityaicontent_generate_form" component="Creatuity_AIContentMassAction/js/form/components/queue-entry-insert-form">
+                        <argument name="data" xsi:type="array">
+                            <item name="js_config" xsi:type="array">
+                                <item name="confirmUrl" xsi:type="url" path="*/*/confirmQueueEntry"/>
+                            </item>
+                        </argument>
+                        <settings>
+                            <dataLinks>
+                                <exports>true</exports>
+                                <imports>true</imports>
+                            </dataLinks>
+                            <formSubmitType>ajax</formSubmitType>
+                            <updateUrl path="mui/index/render_handle"/>
+                            <renderUrl path="mui/index/render_handle">
+                                <param name="handle">creatuityaicontent_generate_form</param>
+                                <param name="buttons">1</param>
+                            </renderUrl>
+                            <externalProvider>creatuityaicontent_generate_form.creatuityaicontent_generate_form_data_source</externalProvider>
+                            <loading>false</loading>
+                            <columnsProvider>creatuityaicontent_aicontententry_queue.creatuityaicontent_aicontententry_queue.listing.creatuityaicontent_aicontententry_queue_listing</columnsProvider>
+                            <autoRender>false</autoRender>
+                            <ns>creatuityaicontent_generate_form</ns>
+                        </settings>
+                    </insertForm>
+                </fieldset>
+            </modal>
+            <button name="modal_button">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="title" xsi:type="string" translate="true">Generate One by One</item>
+                        <item name="actions" xsi:type="array">
+                            <item name="0" xsi:type="array">
+                                <item name="targetName" xsi:type="string">creatuityaicontent_aicontententry_queue.creatuityaicontent_aicontententry_queue.general.modal_container.generate_modal.general.creatuityaicontent_generate_form</item>
+                                <item name="actionName" xsi:type="string">destroyInserted</item>
+                            </item>
+                            <item name="1" xsi:type="array">
+                                <item name="targetName" xsi:type="string">creatuityaicontent_aicontententry_queue.creatuityaicontent_aicontententry_queue.general.modal_container.generate_modal</item>
+                                <item name="actionName" xsi:type="string">openModal</item>
+                            </item>
+                            <item name="2" xsi:type="array">
+                                <item name="targetName" xsi:type="string">creatuityaicontent_aicontententry_queue.creatuityaicontent_aicontententry_queue.general.modal_container.generate_modal.general.creatuityaicontent_generate_form</item>
+                                <item name="actionName" xsi:type="string">render</item>
+                                <item name="params" xsi:type="array">
+                                    <item name="0" xsi:type="array">
+                                        <item name="mass_action" xsi:type="number">1</item>
+                                    </item>
+                                </item>
+                            </item>
+                        </item>
+                    </item>
+                </argument>
+            </button>
+        </container>
+    </fieldset>
+    <fieldset name="listing" sortOrder="10">
+        <settings>
+            <label translate="true">Products Awaiting Content Generation with AI</label>
+        </settings>
+       <insertListing name="creatuityaicontent_aicontententry_queue_listing">
+           <settings>
+               <dataLinks>
+                   <exports>true</exports>
+                   <imports>true</imports>
+               </dataLinks>
+               <autoRender>true</autoRender>
+               <externalProvider>${ $.ns }.creatuityaicontent_aicontententry_queue_listing_data_source</externalProvider>
+               <dataScope>creatuityaicontent_aicontententry_queue_listing</dataScope>
+               <ns>creatuityaicontent_aicontententry_queue_listing</ns>
+           </settings>
+       </insertListing>
+    </fieldset>
+</form>

@@ -1,0 +1,17 @@
+<?php
+/**
+ * @var \Magento\Backend\Block\Template $block
+ * @var \Creatuity\AIContentMassAction\ViewModel\AiContentEntryViewModel $viewModel
+ * @var \Magento\Framework\Escaper $escaper
+ */
+$viewModel = $block->getViewModel();
+$product = $viewModel->getProduct();
+
+if (!$product) {
+    return;
+}
+?>
+
+<h1><?= $escaper->escapeHtml(__('Product: %1', $product->getName())) ?></h1>
+<input type="hidden" value="<?= $viewModel->getQueueEntry()->getEntryId() ?>" id='current_entry_id' name="current_entry_id" />
+<input type="hidden" value="<?= $product->getId() ?>" id='current_product_id' name="current_product_id" />

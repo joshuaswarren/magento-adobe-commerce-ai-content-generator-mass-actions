@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+<listingToolbar name="listing_top">
+    <massaction name="listing_massaction">
+        <action name="creatuity-ai-content">
+            <settings>
+                <type>creatuity-mass-ai-content</type>
+                <label translate="true">Generate With AI</label>
+                <actions>
+                    <action name="0">
+                        <param name="confirm" xsi:type="array">
+                            <item name="title" xsi:type="string" translate="true">Generate Descriptions with AI</item>
+                            <item name="message" xsi:type="string" translate="true">Are you sure you want to generate description with AI for selected products?</item>
+                        </param>
+                        <type>creatuity-mass-ai-description</type>
+                        <label translate="true">Description</label>
+                        <url path="creatuityAiContent/product/massAiGenerate">
+                            <param name="content-type">descriptions</param>
+                        </url>
+                    </action>
+                    <action name="1">
+                        <param name="confirm" xsi:type="array">
+                            <item name="title" xsi:type="string" translate="true">Generate Meta-tags with AI</item>
+                            <item name="message" xsi:type="string" translate="true">Are you sure you want to generate meta-tags with AI for selected products?</item>
+                        </param>
+                        <type>creatuity-mass-ai-metatags</type>
+                        <label translate="true">Meta-Tags</label>
+                        <url path="creatuityAiContent/product/massAiGenerate">
+                            <param name="content-type">meta_tags</param>
+                        </url>
+                    </action>
+                </actions>
+            </settings>
+        </action>
+    </massaction>
+</listingToolbar>
+</listing>

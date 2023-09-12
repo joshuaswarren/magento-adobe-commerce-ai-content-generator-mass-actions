@@ -1,0 +1,23 @@
+<?php
+/**
+ * @var \Magento\Backend\Block\Template $block
+ * @var \Creatuity\AIContentMassAction\ViewModel\AiContentEntryViewModel $viewModel
+ * @var \Magento\Framework\Escaper $escaper
+ */
+$viewModel = $block->getViewModel();
+$product = $viewModel->getProduct();
+
+if ($product) {
+    return;
+}
+?>
+
+<div class="messages">
+    <div class="message message-notice">
+        <div>
+            <?= $escaper->escapeHtml(
+                __('All queue entries has been proceeded.')
+            ) ?>
+        </div>
+    </div>
+</div>

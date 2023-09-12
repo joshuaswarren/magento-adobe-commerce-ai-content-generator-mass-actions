@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="creatuity_ai_content_queue" resource="default" engine="innodb" comment="Products awaiting AI content generation">
+        <column xsi:type="int" name="entry_id" unsigned="true" nullable="false" identity="true" comment="Entry ID" />
+        <column xsi:type="int" name="product_id" nullable="false" comment="Product ID" />
+        <column xsi:type="varchar" name="content_type" nullable="false" comment="Type of content to generate" />
+        <column xsi:type="timestamp" name="created_at" nullable="false" default="CURRENT_TIMESTAMP" />
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entry_id"/>
+        </constraint>
+    </table>
+</schema>
