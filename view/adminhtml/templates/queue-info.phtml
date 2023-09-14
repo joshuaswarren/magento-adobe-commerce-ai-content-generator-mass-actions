@@ -1,0 +1,17 @@
+<?php
+/**
+ * @var \Magento\Backend\Block\Template $block
+ * @var \Magento\Framework\Escaper $escaper
+ */
+?>
+
+<div class="messages">
+    <div class="message message-notice">
+        <div>
+            <?= $escaper->escapeHtml(
+                __('Click <strong>"Skip"</strong> to omit the current product and go next. If your\'re done with the product click  <strong>"Confirm and Continue"</strong> to remove it from queue and go to the next one.'),
+                ['strong']
+            ) ?>
+        </div>
+    </div>
+</div>

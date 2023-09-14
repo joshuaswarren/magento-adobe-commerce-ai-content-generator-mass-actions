@@ -19,6 +19,7 @@
                 <class>back</class>
                 <label translate="true">Back</label>
             </button>
+            <button name="addAttribute" class="Creatuity\AIContentMassAction\Block\Adminhtml\Button\GenerateOneByOneButton"/>
         </buttons>
     </settings>
     <dataSource name="creatuityaicontent_aicontententry_queue_data_source">
@@ -135,32 +136,6 @@
                     </insertForm>
                 </fieldset>
             </modal>
-            <button name="modal_button">
-                <argument name="data" xsi:type="array">
-                    <item name="config" xsi:type="array">
-                        <item name="title" xsi:type="string" translate="true">Generate One by One</item>
-                        <item name="actions" xsi:type="array">
-                            <item name="0" xsi:type="array">
-                                <item name="targetName" xsi:type="string">creatuityaicontent_aicontententry_queue.creatuityaicontent_aicontententry_queue.general.modal_container.generate_modal.general.creatuityaicontent_generate_form</item>
-                                <item name="actionName" xsi:type="string">destroyInserted</item>
-                            </item>
-                            <item name="1" xsi:type="array">
-                                <item name="targetName" xsi:type="string">creatuityaicontent_aicontententry_queue.creatuityaicontent_aicontententry_queue.general.modal_container.generate_modal</item>
-                                <item name="actionName" xsi:type="string">openModal</item>
-                            </item>
-                            <item name="2" xsi:type="array">
-                                <item name="targetName" xsi:type="string">creatuityaicontent_aicontententry_queue.creatuityaicontent_aicontententry_queue.general.modal_container.generate_modal.general.creatuityaicontent_generate_form</item>
-                                <item name="actionName" xsi:type="string">render</item>
-                                <item name="params" xsi:type="array">
-                                    <item name="0" xsi:type="array">
-                                        <item name="mass_action" xsi:type="number">1</item>
-                                    </item>
-                                </item>
-                            </item>
-                        </item>
-                    </item>
-                </argument>
-            </button>
         </container>
     </fieldset>
     <fieldset name="listing" sortOrder="10">

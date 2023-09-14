@@ -11,7 +11,12 @@
             </block>
         </htmlContent>
     </container>
-    <container name="empty_queue_msg" sortOrder="2">
+    <container name="queue_info_container" sortOrder="2">
+        <htmlContent name="queue_info_container_html">
+            <block name="queue_info_container_block" template="Creatuity_AIContentMassAction::queue-info.phtml" />
+        </htmlContent>
+    </container>
+    <container name="empty_queue_msg" sortOrder="3">
         <htmlContent name="empty_queue_msg_html">
             <block name="empty_queue_msg_block" template="Creatuity_AIContentMassAction::empty-queue.phtml">
                 <arguments>
