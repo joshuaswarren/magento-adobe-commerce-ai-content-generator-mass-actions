@@ -26,14 +26,6 @@
         </arguments>
     </type>
 
-    <type name="Magento\Framework\Console\CommandList">
-        <arguments>
-            <argument name="commands" xsi:type="array">
-                <item name="creatuity:products:ai-content-generate" xsi:type="object">Creatuity\AIContentMassAction\Command\Console\AddProductsToAiContentGenerationQueueCommand</item>
-            </argument>
-        </arguments>
-    </type>
-
     <virtualType name="Creatuity\AIContentMassAction\Model\ResourceModel\AiContentQueueEntry\Grid\Collection"
                  type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
         <arguments>

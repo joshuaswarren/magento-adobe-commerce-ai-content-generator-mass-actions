@@ -22,6 +22,11 @@ class AiContentEntryViewModel implements ArgumentInterface
     ) {
     }
 
+    public function isMassAction(): bool
+    {
+        return (bool) $this->request->getParam('mass_action');
+    }
+
     public function getProduct(): ?ProductInterface
     {
         $entry = $this->getQueueEntry();

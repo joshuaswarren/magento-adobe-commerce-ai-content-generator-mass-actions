@@ -48,6 +48,7 @@
                         <title translate="true">Save</title>
                         <imports>
                             <link name="visible">${ $.provider }:data.mass_action</link>
+                            <link name="isMassAction">${ $.provider }:data.mass_action</link>
                             <link name="productId">${ $.provider }:data.product_id</link>
                         </imports>
                     </settings>
@@ -80,6 +81,7 @@
                         <title translate="true">Save</title>
                         <imports>
                             <link name="visible">${ $.provider }:data.mass_action</link>
+                            <link name="isMassAction">${ $.provider }:data.mass_action</link>
                             <link name="productId">${ $.provider }:data.product_id</link>
                         </imports>
                     </settings>
@@ -101,7 +103,6 @@
                 <button name="meta_title_1_apply_btn">
                     <settings>
                         <imports>
-                            <link name="visible">!${ $.provider }:data.mass_action</link>
                             <link name="delete">${ $.provider }:data.mass_action</link>
                         </imports>
                     </settings>
@@ -115,6 +116,7 @@
                         <visible>false</visible>
                         <imports>
                             <link name="productId">${ $.provider }:data.product_id</link>
+                            <link name="isMassAction">${ $.provider }:data.mass_action</link>
                         </imports>
                     </settings>
                     <argument name="data" xsi:type="array">
@@ -133,7 +135,6 @@
                 <button name="meta_title_2_apply_btn">
                     <settings>
                         <imports>
-                            <link name="visible">!${ $.provider }:data.mass_action</link>
                             <link name="delete">${ $.provider }:data.mass_action</link>
                         </imports>
                     </settings>
@@ -147,6 +148,7 @@
                         <visible>false</visible>
                         <imports>
                             <link name="productId">${ $.provider }:data.product_id</link>
+                            <link name="isMassAction">${ $.provider }:data.mass_action</link>
                         </imports>
                     </settings>
                     <argument name="data" xsi:type="array">
@@ -165,7 +167,6 @@
                 <button name="meta_title_3_apply_btn">
                     <settings>
                         <imports>
-                            <link name="visible">!${ $.provider }:data.mass_action</link>
                             <link name="delete">${ $.provider }:data.mass_action</link>
                         </imports>
                     </settings>
@@ -179,6 +180,7 @@
                         <visible>false</visible>
                         <imports>
                             <link name="productId">${ $.provider }:data.product_id</link>
+                            <link name="isMassAction">${ $.provider }:data.mass_action</link>
                         </imports>
                     </settings>
                     <argument name="data" xsi:type="array">
@@ -197,7 +199,6 @@
                 <button name="meta_keywords_1_apply_btn">
                     <settings>
                         <imports>
-                            <link name="visible">!${ $.provider }:data.mass_action</link>
                             <link name="delete">${ $.provider }:data.mass_action</link>
                         </imports>
                     </settings>
@@ -211,6 +212,7 @@
                         <visible>false</visible>
                         <imports>
                             <link name="productId">${ $.provider }:data.product_id</link>
+                            <link name="isMassAction">${ $.provider }:data.mass_action</link>
                         </imports>
                     </settings>
                     <argument name="data" xsi:type="array">
@@ -229,7 +231,6 @@
                 <button name="meta_keywords_2_apply_btn">
                     <settings>
                         <imports>
-                            <link name="visible">!${ $.provider }:data.mass_action</link>
                             <link name="delete">${ $.provider }:data.mass_action</link>
                         </imports>
                     </settings>
@@ -243,6 +244,7 @@
                         <visible>false</visible>
                         <imports>
                             <link name="productId">${ $.provider }:data.product_id</link>
+                            <link name="isMassAction">${ $.provider }:data.mass_action</link>
                         </imports>
                     </settings>
                     <argument name="data" xsi:type="array">
@@ -262,7 +264,6 @@
                 <button name="meta_keywords_3_apply_btn">
                     <settings>
                         <imports>
-                            <link name="visible">!${ $.provider }:data.mass_action</link>
                             <link name="delete">${ $.provider }:data.mass_action</link>
                         </imports>
                     </settings>
@@ -276,6 +277,7 @@
                         <visible>false</visible>
                         <imports>
                             <link name="productId">${ $.provider }:data.product_id</link>
+                            <link name="isMassAction">${ $.provider }:data.mass_action</link>
                         </imports>
                     </settings>
                     <argument name="data" xsi:type="array">
@@ -295,7 +297,6 @@
                 <button name="meta_description_1_apply_btn">
                     <settings>
                         <imports>
-                            <link name="visible">!${ $.provider }:data.mass_action</link>
                             <link name="delete">${ $.provider }:data.mass_action</link>
                         </imports>
                     </settings>
@@ -309,6 +310,7 @@
                         <visible>false</visible>
                         <imports>
                             <link name="productId">${ $.provider }:data.product_id</link>
+                            <link name="isMassAction">${ $.provider }:data.mass_action</link>
                         </imports>
                     </settings>
                     <argument name="data" xsi:type="array">
@@ -328,7 +330,6 @@
                 <button name="meta_description_2_apply_btn">
                     <settings>
                         <imports>
-                            <link name="visible">!${ $.provider }:data.mass_action</link>
                             <link name="delete">${ $.provider }:data.mass_action</link>
                         </imports>
                     </settings>
@@ -342,6 +343,7 @@
                         <visible>false</visible>
                         <imports>
                             <link name="productId">${ $.provider }:data.product_id</link>
+                            <link name="isMassAction">${ $.provider }:data.mass_action</link>
                         </imports>
                     </settings>
                     <argument name="data" xsi:type="array">
@@ -361,7 +363,6 @@
                 <button name="meta_description_3_apply_btn">
                     <settings>
                         <imports>
-                            <link name="visible">!${ $.provider }:data.mass_action</link>
                             <link name="delete">${ $.provider }:data.mass_action</link>
                         </imports>
                     </settings>
@@ -375,6 +376,7 @@
                         <visible>false</visible>
                         <imports>
                             <link name="productId">${ $.provider }:data.product_id</link>
+                            <link name="isMassAction">${ $.provider }:data.mass_action</link>
                         </imports>
                     </settings>
                     <argument name="data" xsi:type="array">

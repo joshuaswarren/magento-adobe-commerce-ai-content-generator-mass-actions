@@ -4,12 +4,10 @@ declare(strict_types=1);
 
 namespace Creatuity\AIContentMassAction\Model\SearchCriteria;
 
-use Magento\Catalog\Api\Data\ProductInterface;
 use Magento\Catalog\Model\ResourceModel\Product\CollectionFactory;
 use Magento\Framework\Api\SearchCriteria\CollectionProcessorInterface;
 use Magento\Framework\Api\SearchCriteriaInterface;
 use Magento\Framework\Data\Collection\AbstractDb;
-use Magento\Framework\EntityManager\MetadataPool;
 
 class ProductCollectionProcessor implements CollectionProcessorInterface
 {

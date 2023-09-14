@@ -7,7 +7,7 @@
 $viewModel = $block->getViewModel();
 $product = $viewModel->getProduct();
 
-if (!$product) {
+if (!$product || !$viewModel->isMassAction()) {
     return;
 }
 ?>

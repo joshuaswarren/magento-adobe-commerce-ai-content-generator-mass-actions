@@ -141,7 +141,7 @@
     </fieldset>
     <fieldset name="listing" sortOrder="10">
         <settings>
-            <label translate="true">Products Awaiting Content Generation with AI</label>
+            <label />
         </settings>
        <insertListing name="creatuityaicontent_queue_listing">
            <settings>

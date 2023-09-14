@@ -39,7 +39,9 @@ define([
                 }
                 this.getSourceField().value.subscribe(function (val) {
                     this.disabled(!(val && val.length));
-                    this.visible(val && val.length);
+                    if (this.isMassAction()) {
+                        this.visible(val && val.length);
+                    }
                 }.bind(this));
                 clearInterval(interval);
             }.bind(this), 100);
@@ -48,7 +50,8 @@ define([
         initObservable: function () {
             this._super()
                 .observe([
-                    'productId'
+                    'productId',
+                    'isMassAction'
                 ]);
 
             return this;
