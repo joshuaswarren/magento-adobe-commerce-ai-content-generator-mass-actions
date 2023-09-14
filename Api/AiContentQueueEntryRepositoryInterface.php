@@ -23,4 +23,9 @@ interface AiContentQueueEntryRepositoryInterface
      * @return void
      */
     public function deleteById(int $entryId): void;
+
+    /**
+     * @return void
+     */
+    public function clear(): void;
 }

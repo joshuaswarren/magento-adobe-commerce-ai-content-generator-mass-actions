@@ -6,7 +6,7 @@ namespace Creatuity\AIContentMassAction\Command\Console;
 
 use Creatuity\AIContentMassAction\Api\AiContentQueueEntryRepositoryInterface;
 use Creatuity\AIContentMassAction\Api\Data\AiContentQueueEntryInterface;
-use Creatuity\AIContentMassAction\Model\AiContentQueueEntryHydrator;
+use Creatuity\AIContentMassAction\Model\CreateAiContentQueueEntry;
 use Magento\Framework\Console\Cli;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -18,7 +18,7 @@ class AddProductsToAiContentGenerationQueueCommand extends Command
 {
     public function __construct(
         private readonly AiContentQueueEntryRepositoryInterface $aiContentQueueEntryRepository,
-        private readonly AiContentQueueEntryHydrator $aiContentQueueEntryHydrator
+        private readonly CreateAiContentQueueEntry $createAiContentQueueEntry
     )
     {
         parent::__construct('creatuity:products:ai-content-generate');
@@ -36,7 +36,7 @@ class AddProductsToAiContentGenerationQueueCommand extends Command
         $productIds = $input->getArgument('product_ids');
 
         foreach ($productIds as $productId) {
-            $this->aiContentQueueEntryRepository->save($this->aiContentQueueEntryHydrator->hydrate([
+            $this->aiContentQueueEntryRepository->save($this->createAiContentQueueEntry->create([
                 AiContentQueueEntryInterface::CONTENT_TYPE => $contentType,
                 AiContentQueueEntryInterface::PRODUCT_ID => $productId
             ]));

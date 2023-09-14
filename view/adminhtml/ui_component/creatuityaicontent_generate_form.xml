@@ -13,7 +13,11 @@
     </container>
     <container name="queue_info_container" sortOrder="2">
         <htmlContent name="queue_info_container_html">
-            <block name="queue_info_container_block" template="Creatuity_AIContentMassAction::queue-info.phtml" />
+            <block name="queue_info_container_block" template="Creatuity_AIContentMassAction::queue-info.phtml">
+                <arguments>
+                    <argument name="view_model" xsi:type="object">Creatuity\AIContentMassAction\ViewModel\AiContentEntryViewModel</argument>
+                </arguments>
+            </block>
         </htmlContent>
     </container>
     <container name="empty_queue_msg" sortOrder="3">

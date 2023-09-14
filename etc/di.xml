@@ -45,7 +45,7 @@
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
             <argument name="collections" xsi:type="array">
-                <item name="creatuityaicontent_aicontententry_queue_listing_data_source" xsi:type="string">Creatuity\AIContentMassAction\Model\ResourceModel\AiContentQueueEntry\Grid\Collection</item>
+                <item name="creatuityaicontent_queue_listing_data_source" xsi:type="string">Creatuity\AIContentMassAction\Model\ResourceModel\AiContentQueueEntry\Grid\Collection</item>
             </argument>
         </arguments>
     </type>
@@ -63,6 +63,32 @@
             <argument name="providers" xsi:type="array">
                 <item name="from_queue_provider" sortOrder="20" xsi:type="object">Creatuity\AIContentMassAction\Model\DataProvider\ContentType\AIFormContentTypeFromQueue</item>
             </argument>
+        </arguments>
+    </type>
+
+    <virtualType name="AiContentQueueEntryCollectionProcessor" type="Magento\Framework\Api\SearchCriteria\CollectionProcessor">
+        <arguments>
+            <argument name="processors" xsi:type="array">
+                <item name="products" xsi:type="object">Creatuity\AIContentMassAction\Model\SearchCriteria\ProductCollectionProcessor</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Creatuity\AIContentMassAction\Model\GetQueueEntryList">
+        <arguments>
+            <argument name="collectionProcessor" xsi:type="object">AiContentQueueEntryCollectionProcessor</argument>
+        </arguments>
+    </type>
+
+    <virtualType name="AiContentQueueEntrySearchResultFactory" type="Magento\Ui\DataProvider\SearchResultFactory">
+        <arguments>
+            <argument name="hydrator" xsi:type="object">Creatuity\AIContentMassAction\Model\AiContentQueueEntryHydrator</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Creatuity\AIContentMassAction\Ui\Listing\QueueDataProvider">
+        <arguments>
+            <argument name="searchResultFactory" xsi:type="object">AiContentQueueEntrySearchResultFactory</argument>
         </arguments>
     </type>
 </config>

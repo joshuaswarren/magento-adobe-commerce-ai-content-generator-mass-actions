@@ -10,8 +10,9 @@ $product = $viewModel->getProduct();
 if (!$product) {
     return;
 }
+$url = $block->getUrl('catalog/product/edit', ['id' => $product->getId()])
 ?>
 
-<h1><?= $escaper->escapeHtml(__('Product: %1', $product->getName())) ?></h1>
+<h1><?= $escaper->escapeHtml(__('Product:')) . ' <a href="'. $url . '" target="_blank">' . $product->getName() . '</a>' ?></h1>
 <input type="hidden" value="<?= $viewModel->getQueueEntry()->getEntryId() ?>" id='current_entry_id' name="current_entry_id" />
 <input type="hidden" value="<?= $product->getId() ?>" id='current_product_id' name="current_product_id" />

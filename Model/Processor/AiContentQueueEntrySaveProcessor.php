@@ -6,7 +6,7 @@ namespace Creatuity\AIContentMassAction\Model\Processor;
 
 use Creatuity\AIContentMassAction\Api\AiContentQueueEntryRepositoryInterface;
 use Creatuity\AIContentMassAction\Api\Data\AiContentQueueEntryInterface;
-use Creatuity\AIContentMassAction\Model\AiContentQueueEntryHydrator;
+use Creatuity\AIContentMassAction\Model\CreateAiContentQueueEntry;
 use Creatuity\AIContentMassAction\Model\Validator\AiContentQueueEntryValidatorInterface;
 use Magento\Framework\Validation\ValidationException;
 
@@ -14,7 +14,7 @@ class AiContentQueueEntrySaveProcessor
 {
     public function __construct(
         private readonly AiContentQueueEntryValidatorInterface $aiContentQueueEntryValidator,
-        private readonly AiContentQueueEntryHydrator $aiContentQueueEntryHydrator,
+        private readonly CreateAiContentQueueEntry $createAiContentQueueEntry,
         private readonly AiContentQueueEntryRepositoryInterface $aiContentQueueEntryRepository
     ) {
     }
@@ -26,7 +26,7 @@ class AiContentQueueEntrySaveProcessor
      */
     public function process(array $params): AiContentQueueEntryInterface
     {
-        $entry = $this->aiContentQueueEntryHydrator->hydrate([
+        $entry = $this->createAiContentQueueEntry->create([
             AiContentQueueEntryInterface::PRODUCT_ID => $params['product_id'],
             AiContentQueueEntryInterface::CONTENT_TYPE => $params['content_type']
         ]);

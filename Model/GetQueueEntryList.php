@@ -19,7 +19,7 @@ class GetQueueEntryList
     ) {
     }
 
-    public function execute(SearchCriteriaInterface $searchCriteria)
+    public function execute(SearchCriteriaInterface $searchCriteria): AiContentQueueEntrySearchResultInterface
     {
         /** @var \Creatuity\AIContentMassAction\Model\ResourceModel\AiContentQueueEntry\Collection  $collection */
         $collection = $this->collectionFactory->create();

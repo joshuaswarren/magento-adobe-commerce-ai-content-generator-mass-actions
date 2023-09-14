@@ -59,6 +59,6 @@ class MassAiGenerate extends Action implements HttpPostActionInterface
             }
         }
 
-        return $this->redirectFactory->create()->setPath('*/aiContentEntry/queue');
+        return $this->redirectFactory->create()->setPath('*/queue');
     }
 }

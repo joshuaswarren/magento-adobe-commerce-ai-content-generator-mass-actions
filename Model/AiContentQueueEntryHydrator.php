@@ -5,22 +5,30 @@ declare(strict_types=1);
 namespace Creatuity\AIContentMassAction\Model;
 
 use Creatuity\AIContentMassAction\Api\Data\AiContentQueueEntryInterface;
-use Creatuity\AIContentMassAction\Api\Data\AiContentQueueEntryInterfaceFactory;
 use Magento\Framework\Api\DataObjectHelper;
+use Magento\Framework\EntityManager\HydratorInterface;
 
-class AiContentQueueEntryHydrator
+class AiContentQueueEntryHydrator implements HydratorInterface
 {
     public function __construct(
-        private readonly DataObjectHelper $dataObjectHelper,
-        private readonly AiContentQueueEntryInterfaceFactory $aiContentQueueEntryFactory
+        private readonly DataObjectHelper $dataObjectHelper
     ) {
     }
 
-    public function hydrate(array $data): AiContentQueueEntryInterface
+    /**
+     * @param AiContentQueueEntryInterface $entity
+     * @param array $data
+     * @return AiContentQueueEntryInterface
+     */
+    public function hydrate($entity, array $data): AiContentQueueEntryInterface
     {
-        $object = $this->aiContentQueueEntryFactory->create();
-        $this->dataObjectHelper->populateWithArray($object, $data, AiContentQueueEntryInterface::class);
+        $this->dataObjectHelper->populateWithArray($entity, $data, AiContentQueueEntryInterface::class);
 
-        return $object;
+        return $entity;
+    }
+
+    public function extract($entity): array
+    {
+        return $entity->getData();
     }
 }

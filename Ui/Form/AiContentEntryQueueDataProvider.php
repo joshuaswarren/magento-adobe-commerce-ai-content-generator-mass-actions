@@ -26,10 +26,15 @@ class AiContentEntryQueueDataProvider extends AbstractDataProvider
 
     public function getData(): array
     {
+        $entry = $this->getNextAiContentEntry->execute();
+        if (!$entry) {
+            return [];
+        }
+
         return [
             '' => [
-                'entry_id' => $this->getNextAiContentEntry->execute()->getEntryId(),
-                'product_id' => $this->getNextAiContentEntry->execute()->getProductId(),
+                'entry_id' => $entry->getEntryId(),
+                'product_id' => $entry->getProductId(),
             ]
         ];
     }

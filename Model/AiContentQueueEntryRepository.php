@@ -43,4 +43,11 @@ class AiContentQueueEntryRepository implements AiContentQueueEntryRepositoryInte
             throw new CouldNotDeleteException(__('Queue entry could\'t be removed'), $e);
         }
     }
+
+    public function clear(): void
+    {
+        /** @var \Magento\Framework\DB\Adapter\AdapterInterface $conn */
+        $conn = $this->aiContentQueueEntryResource->getConnection();
+        $conn->truncateTable($this->aiContentQueueEntryResource::TABLE_NAME);
+    }
 }

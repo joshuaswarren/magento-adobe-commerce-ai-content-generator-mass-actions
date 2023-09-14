@@ -14,7 +14,7 @@ use Magento\Framework\Controller\ResultInterface;
 use Magento\Framework\Exception\CouldNotDeleteException;
 use Psr\Log\LoggerInterface;
 
-class ConfirmQueueEntry extends Action implements HttpPostActionInterface
+class Confirm extends Action implements HttpPostActionInterface
 {
     public function __construct(
         Context $context,

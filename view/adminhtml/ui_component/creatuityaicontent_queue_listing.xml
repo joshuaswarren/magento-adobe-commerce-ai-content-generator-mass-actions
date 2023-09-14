@@ -1,16 +1,16 @@
 <listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
     <argument name="data" xsi:type="array">
         <item name="js_config" xsi:type="array">
-            <item name="provider" xsi:type="string">creatuityaicontent_aicontententry_queue_listing.creatuityaicontent_aicontententry_queue_listing_data_source</item>
+            <item name="provider" xsi:type="string">creatuityaicontent_queue_listing.creatuityaicontent_queue_listing_data_source</item>
         </item>
     </argument>
     <settings>
         <spinner>columns</spinner>
         <deps>
-            <dep>creatuityaicontent_aicontententry_queue_listing.creatuityaicontent_aicontententry_queue_listing_data_source</dep>
+            <dep>creatuityaicontent_queue_listing.creatuityaicontent_queue_listing_data_source</dep>
         </deps>
     </settings>
-    <dataSource name="creatuityaicontent_aicontententry_queue_listing_data_source" component="Magento_Ui/js/grid/provider">
+    <dataSource name="creatuityaicontent_queue_listing_data_source" component="Magento_Ui/js/grid/provider">
         <settings>
             <storageConfig>
                 <param name="indexField" xsi:type="string">entry_id</param>
@@ -18,7 +18,7 @@
             <updateUrl path="mui/index/render"/>
         </settings>
         <aclResource>Magento_Catalog::products</aclResource>
-        <dataProvider class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider" name="creatuityaicontent_aicontententry_queue_listing_data_source">
+        <dataProvider class="Creatuity\AIContentMassAction\Ui\Listing\QueueDataProvider" name="creatuityaicontent_queue_listing_data_source">
             <settings>
                 <requestFieldName>id</requestFieldName>
                 <primaryFieldName>entry_id</primaryFieldName>
@@ -41,28 +41,23 @@
             <settings>
                 <filter>text</filter>
                 <label translate="true">ID</label>
+                <visible>false</visible>
             </settings>
         </column>
-        <column name="product_id" sortOrder="20">
+        <column name="product_name" sortOrder="20" class="Creatuity\AIContentMassAction\Ui\Listing\Column\ProductNameColumn">
             <settings>
                 <filter>text</filter>
                 <dataType>text</dataType>
-                <label translate="true">Product ID</label>
+                <label translate="true">Product Name</label>
+                <bodyTmpl>ui/grid/cells/html</bodyTmpl>
             </settings>
         </column>
-        <column name="content_type" sortOrder="30">
+        <column name="content_type" sortOrder="30" class="Creatuity\AIContentMassAction\Ui\Listing\Column\ContentTypeColumn">
             <settings>
                 <filter>text</filter>
                 <dataType>text</dataType>
-                <label translate="true">Content Type</label>
+                <label translate="true">Content To Generate</label>
             </settings>
         </column>
-<!--        <actionsColumn name="actions" class="Creatuity\SubscriptionPlan\Ui\Listing\Column\SubscriptionPlanActionsColumn">-->
-<!--            <settings>-->
-<!--                <indexField>entry_id</indexField>-->
-<!--                <resizeEnabled>false</resizeEnabled>-->
-<!--                <resizeDefaultWidth>107</resizeDefaultWidth>-->
-<!--            </settings>-->
-<!--        </actionsColumn>-->
     </columns>
 </listing>

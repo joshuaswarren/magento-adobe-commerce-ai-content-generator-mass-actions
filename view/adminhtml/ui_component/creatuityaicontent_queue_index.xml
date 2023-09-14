@@ -2,27 +2,28 @@
 <form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
     <argument name="data" xsi:type="array">
         <item name="js_config" xsi:type="array">
-            <item name="provider" xsi:type="string">creatuityaicontent_aicontententry_queue.creatuityaicontent_aicontententry_queue_data_source</item>
-            <item name="namespace" xsi:type="string">creatuityaicontent_aicontententry_queue</item>
+            <item name="provider" xsi:type="string">creatuityaicontent_queue_index.creatuityaicontent_queue_index_data_source</item>
+            <item name="namespace" xsi:type="string">creatuityaicontent_queue_index</item>
         </item>
         <item name="template" xsi:type="string">templates/form/collapsible</item>
     </argument>
     <settings>
         <deps>
-            <dep>creatuityaicontent_aicontententry_queue.creatuityaicontent_aicontententry_queue_data_source</dep>
+            <dep>creatuityaicontent_queue_index.creatuityaicontent_queue_index_data_source</dep>
         </deps>
         <dataScope>data</dataScope>
-        <namespace>creatuityaicontent_aicontententry_queue</namespace>
+        <namespace>creatuityaicontent_queue_index</namespace>
         <buttons>
             <button name="back">
                 <url path="catalog/product/index/"/>
                 <class>back</class>
                 <label translate="true">Back</label>
             </button>
-            <button name="addAttribute" class="Creatuity\AIContentMassAction\Block\Adminhtml\Button\GenerateOneByOneButton"/>
+            <button name="clear-queue" class="Creatuity\AIContentMassAction\Block\Adminhtml\Button\ClearQueueButton"/>
+            <button name="generate-one-by-one-modal" class="Creatuity\AIContentMassAction\Block\Adminhtml\Button\GenerateOneByOneButton"/>
         </buttons>
     </settings>
-    <dataSource name="creatuityaicontent_aicontententry_queue_data_source">
+    <dataSource name="creatuityaicontent_queue_index_data_source">
         <argument name="data" xsi:type="array">
             <item name="js_config" xsi:type="array">
                 <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
@@ -32,7 +33,7 @@
             <validateUrl path="*/*/validate"/>
             <submitUrl path="*/*/save"/>
         </settings>
-        <dataProvider class="Creatuity\AIContentMassAction\Ui\Form\AiContentEntryQueueDataProvider" name="creatuityaicontent_aicontententry_queue_data_source">
+        <dataProvider class="Creatuity\AIContentMassAction\Ui\Form\AiContentEntryQueueDataProvider" name="creatuityaicontent_queue_index_data_source">
             <settings>
                 <requestFieldName>id</requestFieldName>
                 <primaryFieldName>entry_id</primaryFieldName>
@@ -113,7 +114,7 @@
                     <insertForm name="creatuityaicontent_generate_form" component="Creatuity_AIContentMassAction/js/form/components/queue-entry-insert-form">
                         <argument name="data" xsi:type="array">
                             <item name="js_config" xsi:type="array">
-                                <item name="confirmUrl" xsi:type="url" path="*/*/confirmQueueEntry"/>
+                                <item name="confirmUrl" xsi:type="url" path="*/aiContentEntry/confirm"/>
                             </item>
                         </argument>
                         <settings>
@@ -129,7 +130,7 @@
                             </renderUrl>
                             <externalProvider>creatuityaicontent_generate_form.creatuityaicontent_generate_form_data_source</externalProvider>
                             <loading>false</loading>
-                            <columnsProvider>creatuityaicontent_aicontententry_queue.creatuityaicontent_aicontententry_queue.listing.creatuityaicontent_aicontententry_queue_listing</columnsProvider>
+                            <columnsProvider>creatuityaicontent_queue_index.creatuityaicontent_queue_index.listing.creatuityaicontent_queue_listing</columnsProvider>
                             <autoRender>false</autoRender>
                             <ns>creatuityaicontent_generate_form</ns>
                         </settings>
@@ -142,16 +143,16 @@
         <settings>
             <label translate="true">Products Awaiting Content Generation with AI</label>
         </settings>
-       <insertListing name="creatuityaicontent_aicontententry_queue_listing">
+       <insertListing name="creatuityaicontent_queue_listing">
            <settings>
                <dataLinks>
                    <exports>true</exports>
                    <imports>true</imports>
                </dataLinks>
                <autoRender>true</autoRender>
-               <externalProvider>${ $.ns }.creatuityaicontent_aicontententry_queue_listing_data_source</externalProvider>
-               <dataScope>creatuityaicontent_aicontententry_queue_listing</dataScope>
-               <ns>creatuityaicontent_aicontententry_queue_listing</ns>
+               <externalProvider>creatuityaicontent_queue_listing.creatuityaicontent_queue_listing_data_source</externalProvider>
+               <dataScope>creatuityaicontent_queue_listing</dataScope>
+               <ns>creatuityaicontent_queue_listing</ns>
            </settings>
        </insertListing>
     </fieldset>

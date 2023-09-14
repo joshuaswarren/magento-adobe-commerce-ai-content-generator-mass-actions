@@ -4,12 +4,22 @@ declare(strict_types=1);
 
 namespace Creatuity\AIContentMassAction\Block\Adminhtml\Button;
 
-use Magento\Catalog\Block\Adminhtml\Product\Edit\Button\Generic;
+use Creatuity\AIContentMassAction\Model\IsActiveAiContentEntriesQueue;
+use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;
 
-class GenerateOneByOneButton extends Generic
+class GenerateOneByOneButton implements ButtonProviderInterface
 {
-    public function getButtonData()
+    public function __construct(
+        private readonly IsActiveAiContentEntriesQueue $isActiveAiContentEntriesQueue
+    ) {
+    }
+
+    public function getButtonData(): array
     {
+        if (!$this->isActiveAiContentEntriesQueue->execute()) {
+            return [];
+        }
+
         return [
             'label' => __('Generate One By One'),
             'class' => 'action-primary',
@@ -18,15 +28,15 @@ class GenerateOneByOneButton extends Generic
                     'Magento_Ui/js/form/button-adapter' => [
                         'actions' => [
                             [
-                                'targetName' => 'creatuityaicontent_aicontententry_queue.creatuityaicontent_aicontententry_queue.general.modal_container.generate_modal.general.creatuityaicontent_generate_form',
+                                'targetName' => 'creatuityaicontent_queue_index.creatuityaicontent_queue_index.general.modal_container.generate_modal.general.creatuityaicontent_generate_form',
                                 'actionName' => 'destroyInserted'
                             ],
                             [
-                                'targetName' => 'creatuityaicontent_aicontententry_queue.creatuityaicontent_aicontententry_queue.general.modal_container.generate_modal',
+                                'targetName' => 'creatuityaicontent_queue_index.creatuityaicontent_queue_index.general.modal_container.generate_modal',
                                 'actionName' => 'openModal'
                             ],
                             [
-                                'targetName' => 'creatuityaicontent_aicontententry_queue.creatuityaicontent_aicontententry_queue.general.modal_container.generate_modal.general.creatuityaicontent_generate_form',
+                                'targetName' => 'creatuityaicontent_queue_index.creatuityaicontent_queue_index.general.modal_container.generate_modal.general.creatuityaicontent_generate_form',
                                 'actionName' => 'render',
                                 'params' => [
                                     ['mass_action' => 1]

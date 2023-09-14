@@ -6,7 +6,7 @@
     </head>
     <body>
         <referenceContainer name="content">
-            <uiComponent name="creatuityaicontent_aicontententry_queue"/>
+            <uiComponent name="creatuityaicontent_queue_index"/>
         </referenceContainer>
     </body>
 </page>
