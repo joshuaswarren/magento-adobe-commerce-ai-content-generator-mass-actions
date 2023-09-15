@@ -1,0 +1,24 @@
+{
+    "name": "joshuaswarren/magento-adobe-commerce-ai-content-generator-mass-actions",
+    "description": "Creatuity AI Content Generator Mass Action Support",
+    "version": "0.0.2",
+    "type": "magento2-module",
+    "license": [
+        "Proprietary"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Creatuity\\AIContentMassAction\\": ""
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9"
+    },
+    "require": {
+        "php": "^8.1",
+        "creatuity/magento2-ai-content-generator-core": "0.0.1"
+    }
+}

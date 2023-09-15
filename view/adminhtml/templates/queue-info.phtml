@@ -1,0 +1,32 @@
+<?php
+/**
+ * @var \Magento\Backend\Block\Template $block
+ * @var \Creatuity\AIContentMassAction\ViewModel\AiContentEntryViewModel $viewModel
+ * @var \Magento\Framework\Escaper $escaper
+ */
+$viewModel = $block->getViewModel();
+$product = $viewModel->getProduct();
+
+if (!$product || !$viewModel->isMassAction()) {
+    return;
+}
+?>
+
+<div class="messages">
+    <div class="message message-notice">
+        <div>
+            <?= $escaper->escapeHtml(
+                __('Click <strong>"Skip"</strong> to omit the current product for now and move on to the next one. If your\'re done with the product click  <strong>"Confirm and Continue"</strong> to remove it from queue and move on to the next one.'),
+                ['strong']
+            ) ?>
+        </div>
+    </div>
+    <div class="message message-notice">
+        <div>
+            <?= $escaper->escapeHtml(
+                __('Click any <strong>"Generate"</strong> button to request AI to generate desired content. Once the content is generated you can optionally edit it and then save it directly to product.'),
+                ['strong']
+            ) ?>
+        </div>
+    </div>
+</div>
