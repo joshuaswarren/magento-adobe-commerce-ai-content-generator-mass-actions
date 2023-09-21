@@ -24,7 +24,7 @@
     "repositories": {
         "magento2-ai-content-generator-core": {
             "type": "vcs",
-            "url": "git@github.com:magento2-ai-content-generator-core.git"
+            "url": "git@github.com:creatuity/magento2-ai-content-generator-core.git"
         }
     }
 }
