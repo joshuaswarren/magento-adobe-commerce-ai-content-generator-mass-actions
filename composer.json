@@ -26,5 +26,10 @@
             "type": "vcs",
             "url": "git@github.com:creatuity/magento2-ai-content-generator-core.git"
         }
-    }
+    },
+    "authors": [
+        {
+            "name": "Joshua Warren"
+        }
+    ]
 }
