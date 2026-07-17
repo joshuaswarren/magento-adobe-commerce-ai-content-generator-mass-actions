@@ -1,6 +1,6 @@
 {
     "name": "joshuaswarren/magento-adobe-commerce-ai-content-generator-mass-actions",
-    "description": "Creatuity AI Content Generator Mass Action Support",
+    "description": "AI content generator mass actions for Adobe Commerce",
     "version": "0.0.2",
     "type": "magento2-module",
     "license": [
